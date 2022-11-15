@@ -6,7 +6,7 @@ var app = new express();
 //var Port = 3002;
 var Port = process.env.PORT || 1337;
 app.use(cors());
-app.use(express.static('./dist/Frontend'));
+app.use(express.static('./dist/frontend'));
 app.get("/api/Blogs", function(req, res) {
     BloggerData.find()
         .then(function(blogger) {
@@ -15,7 +15,7 @@ app.get("/api/Blogs", function(req, res) {
 });
 
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
 });
 app.listen(Port, function() {
     console.log(`listening to port ${Port}`);
