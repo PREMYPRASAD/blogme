@@ -3,7 +3,8 @@ const BloggerData = require('./src/Model/blogdb')
 const cors = require('cors');
 const path = require('path');
 var app = new express();
-var Port = 3002;
+//var Port = 3002;
+var Port = process.env.PORT || 3002;
 app.use(cors());
 app.use(express.static('./dist/Frontend'));
 app.get("/api/Blogs", function(req, res) {
